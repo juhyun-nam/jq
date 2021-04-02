@@ -1,0 +1,12 @@
+FROM rust:1.40
+
+RUN apt-get update\
+    && apt-get install -y vim
+
+RUN rustup update \
+    && rustup component add clippy rustfmt
+
+WORKDIR /usr/src/jq
+COPY . .
+RUN cargo install --path .
+
