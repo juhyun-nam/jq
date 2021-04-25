@@ -1,3 +1,5 @@
 fn main() {
-    println!("Hello, world!");
+    if let Err(e) = jq::run() {
+        panic!(e);
+    }
 }
